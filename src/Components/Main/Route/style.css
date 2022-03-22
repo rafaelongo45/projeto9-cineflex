@@ -1,29 +1,29 @@
-.Rota {
+.Route {
     margin-top: 18%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.Rota header{
+.Route header{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
 }
 
-.Rota header h1{
+.Route header h1{
     color: var(--font-color);
     font-size: 24px;
 }
 
-.Rota section {
+.Route section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.Rota section div{
+.Route section div{
     width:41%;
     height: 14%;
     margin-bottom: 10px;
@@ -32,7 +32,7 @@
     box-shadow: 4px 5px 4px 2px rgba(0, 0, 0, 0.1);
 }
 
-.Rota section div img{
+.Route section div img{
     width:100%;
     height: 100%;
 }

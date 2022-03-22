@@ -1,4 +1,4 @@
-.Sessao{
+.Theater-room{
     height: 100%;
     margin-top: 18%;
     display: flex;
@@ -6,24 +6,24 @@
     flex-direction: column;
 }
 
-.Sessao header{
+.Theater-room header{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15%;
 }
 
-.Sessao header h1{
+.Theater-room header h1{
     font-size: 24px;
 }
 
-.Sessao .assentos {
+.Theater-room .seats {
     display:flex;
     flex-wrap: wrap;
     margin-bottom: 10%;
 }
 
-.Sessao .assentos .assento{
+.Theater-room .seats .seat{
     width: 25px;
     height: 25px;
     background-color: var(--header-color);
@@ -37,13 +37,13 @@
     margin: 0 3px 15px
 }
 
-.Sessao .assentos .legenda{
+.Theater-room .seats .captions{
     width: 100%;
     display:flex;
     justify-content: space-around;
 }
 
-.Sessao .assentos .legenda section{
+.Theater-room .seats .captions section{
     width: 25%;
     display:flex;
     flex-wrap: wrap;
@@ -52,29 +52,29 @@
     margin-top: 1%;
 }
 
-.Sessao .assentos .legenda section div{
+.Theater-room .seats .captions section div{
     width: 25px;
     height: 25px;
     border-radius: 50%;
     margin-bottom: 10%;
 }
 
-.Sessao .assentos .legenda section .selected{
+.Theater-room .seats .captions section .selected{
     background-color: var(--selected-color);
     border: 1px solid var(--selected-border-color);
 }
 
-.Sessao .assentos .legenda section .available{
+.Theater-room .seats .captions section .available{
     background-color: var(--available-color);
     border: 1px solid var(--available-border-color);
 }
 
-.Sessao .assentos .legenda section .unavailable{
+.Theater-room .seats .captions section .unavailable{
     background-color: var(--unavailable-color);
     border: 1px solid var(--unavailable-border-color);
 }
 
-.Sessao article{
+.Theater-room article{
     height: 35%;
     width: 100%;
     display:flex;
@@ -82,17 +82,17 @@
     justify-content: center;
 }
 
-.Sessao article section {
+.Theater-room article section {
     height: 45%;
     width: 100%;
 }
 
-.Sessao article section p{
+.Theater-room article section p{
     font-size: 14px;
     font-weight: 700;
 }
 
-.Sessao article section input{
+.Theater-room article section input{
     width: 95%;
     height: 50%;
     margin: 2% 0;
@@ -103,7 +103,7 @@
     padding-left: 15px;
 }
 
-.Sessao article button{
+.Theater-room article button{
     width: 55%;
     height: 18%;
     border-radius: 3px;

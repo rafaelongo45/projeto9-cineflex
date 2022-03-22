@@ -1,12 +1,12 @@
 import RenderHeader from "../Header";
-import RenderFooter from "../Footer";
-import RenderSessao from "../Main/Sessao";
+import RenderTheatherRoom from "../Main/TheaterRoom";
+import RenderFooter from "../Footer"
 
 function App() {
     return (
         <>
             <RenderHeader />
-            <RenderSessao />
+            <RenderTheatherRoom />
             <RenderFooter />
         </>
     )

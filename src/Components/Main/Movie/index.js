@@ -1,9 +1,9 @@
 import "./style.css"
 
-function RenderFilme() {
+function RenderMovie() {
     return (
         <>
-            <section className = "Filme">
+            <section className = "Movie">
                 <header>
                     <h1>Selecione o horário</h1>
                 </header>
@@ -25,4 +25,4 @@ function RenderFilme() {
     )
 }
 
-export default RenderFilme;
+export default RenderMovie;

@@ -13,6 +13,7 @@
     --input-border-color: rgba(212, 212, 212, 1);
     --input-text-color: rgba(175, 175, 175, 1);
     --footer-border-color: rgba(158, 173, 186, 1);
+    --success-h1-color: rgba(36, 122, 107, 1);
 }
 
 body{

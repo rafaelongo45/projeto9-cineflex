@@ -1,0 +1,16 @@
+.Header {
+    background-color: var(--header-color);
+    height: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+.Header h1{
+    color: var(--header-h1-color);
+    font-size: 34px;
+}

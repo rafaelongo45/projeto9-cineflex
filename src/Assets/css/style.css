@@ -1,0 +1,10 @@
+*{
+    box-sizing: content-box;
+    --header-color: rgba(195, 207, 217, 1);
+    --header-h1-color: rgba(232, 131, 58, 1);
+    --font-color: rgba(41, 56, 69, 1);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}

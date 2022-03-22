@@ -1,0 +1,115 @@
+.Sessao{
+    height: 100%;
+    margin-top: 18%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.Sessao header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+}
+
+.Sessao header h1{
+    font-size: 24px;
+}
+
+.Sessao .assentos {
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 10%;
+}
+
+.Sessao .assentos .assento{
+    width: 25px;
+    height: 25px;
+    background-color: var(--header-color);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--available-border-color);
+    border-radius: 50%;
+    color:black;
+    font-size: 12px;
+    margin: 0 3px 15px
+}
+
+.Sessao .assentos .legenda{
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+}
+
+.Sessao .assentos .legenda section{
+    width: 25%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.Sessao .assentos .legenda section div{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-bottom: 10%;
+}
+
+.Sessao .assentos .legenda section .selected{
+    background-color: var(--selected-color);
+    border: 1px solid var(--selected-border-color);
+}
+
+.Sessao .assentos .legenda section .available{
+    background-color: var(--available-color);
+    border: 1px solid var(--available-border-color);
+}
+
+.Sessao .assentos .legenda section .unavailable{
+    background-color: var(--unavailable-color);
+    border: 1px solid var(--unavailable-border-color);
+}
+
+.Sessao article{
+    height: 35%;
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Sessao article section {
+    height: 45%;
+    width: 100%;
+}
+
+.Sessao article section p{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.Sessao article section input{
+    width: 95%;
+    height: 50%;
+    margin: 2% 0;
+    border:1px solid var(--input-border-color);
+    border-radius: 3px;
+    font-style: italic;
+    font-size: 15px;
+    padding-left: 15px;
+}
+
+.Sessao article button{
+    width: 55%;
+    height: 18%;
+    border-radius: 3px;
+    border:none;
+    font-size: 18px;
+    color: white;
+    background-color: var(--button-color);
+}
+

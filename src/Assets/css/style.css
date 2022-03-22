@@ -3,8 +3,25 @@
     --header-color: rgba(195, 207, 217, 1);
     --header-h1-color: rgba(232, 131, 58, 1);
     --font-color: rgba(41, 56, 69, 1);
+    --button-color: rgb(216, 124, 59);    ;
+    --selected-color: rgba(141, 215, 207, 1);
+    --selected-border-color: rgba(26, 174, 158, 1);
+    --available-color:rgba(195, 207, 217, 1);
+    --available-border-color: rgba(123, 139, 153, 1);
+    --unavailable-color: rgba(251, 225, 146, 1);
+    --unavailable-border-color:rgba(247, 197, 43, 1);
+    --input-border-color: rgba(212, 212, 212, 1);
+    --input-text-color: rgba(175, 175, 175, 1);
+    --footer-border-color: rgba(158, 173, 186, 1);
 }
 
 body{
     font-family: 'Roboto', sans-serif;
+    color: var(--font-color);
+}
+
+.root{
+    margin: auto;
+    width: 90%;
+    height: 77vh;
 }

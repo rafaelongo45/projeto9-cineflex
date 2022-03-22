@@ -1,11 +1,13 @@
 import RenderHeader from "../Header";
-import RenderRota from "../Main/Rota";
+import RenderFooter from "../Footer";
+import RenderSessao from "../Main/Sessao";
 
 function App() {
     return (
         <>
             <RenderHeader />
-            <RenderRota />
+            <RenderSessao />
+            <RenderFooter />
         </>
     )
 }

@@ -1,0 +1,42 @@
+.Filme{
+    height: 100%;
+    margin-top: 18%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.Filme header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11%;
+}
+
+.Filme header h1{
+    font-size: 24px;
+}
+
+.Filme section{
+    height: 75%;
+}
+
+.Filme section p{
+    font-size: 20px;
+}
+
+.Filme section div{
+    height: 8%;
+    margin: 8% 0;
+}
+
+.Filme section div button{
+    width: 18%;
+    height: 100%;
+    margin-right: 10px;
+    background-color: var(--button-color);
+    border: none;
+    color: white;
+    border-radius: 3px;
+    font-size: 15px;
+}

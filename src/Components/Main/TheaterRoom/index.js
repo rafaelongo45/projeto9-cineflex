@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import "./style.css"
 
 function RenderTheatherRoom() {
@@ -58,7 +60,9 @@ function RenderTheatherRoom() {
                     <input placeholder="Digite seu CPF..."></input>
                 </section>
 
-                <button>Reservar assento(s)</button>
+                <Link to ="/success">
+                    <button>Reservar assento(s)</button>
+                </Link>
             </article>
         </section>
     )

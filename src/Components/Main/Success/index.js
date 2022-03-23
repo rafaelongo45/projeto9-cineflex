@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import "./style.css"
 
 function RenderSuccess() {
@@ -25,8 +27,9 @@ function RenderSuccess() {
                 <p>CPF: 123.456.789-10</p>
             </section>
 
-            <button>Voltar pra Home</button>
-
+            <Link to = "/">
+                <button>Voltar pra Home</button>
+            </Link>
         </article>
     )
 }

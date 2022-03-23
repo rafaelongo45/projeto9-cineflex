@@ -5,7 +5,7 @@ function RenderFooter() {
     return (
         <footer className="Footer">
             <div>
-                <img src={img} />
+                <img src={img} alt = "movie-poster"/>
             </div>
             <section>
                 <h1>Movie title</h1>

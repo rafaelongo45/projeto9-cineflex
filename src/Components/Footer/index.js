@@ -4,10 +4,10 @@ import "./style.css"
 function RenderFooter() {
     return (
         <footer className="Footer">
-            <div>
+            <div className = "movie-poster">
                 <img src={img} alt = "movie-poster"/>
             </div>
-            <section>
+            <section className = "movie-info">
                 <h1>Movie title</h1>
                 <p>Quinta-feira - 15:00</p>
             </section>

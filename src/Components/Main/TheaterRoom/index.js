@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 
+import RenderFooter from "../../Footer"
 import "./style.css"
 
 function RenderTheatherRoom() {
@@ -64,6 +65,8 @@ function RenderTheatherRoom() {
                     <button>Reservar assento(s)</button>
                 </Link>
             </article>
+
+            <RenderFooter />
         </section>
     )
 }

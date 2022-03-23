@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 
+import RenderFooter from "../../Footer"
+import "../../Footer/style.css"
 import "./style.css"
-
 function RenderMovie() {
     return (
         <>
@@ -29,6 +30,8 @@ function RenderMovie() {
                             <button>15:00</button>
                         </Link>
                     </div>
+
+                    <RenderFooter />
                 </section>
             </section>
         </>

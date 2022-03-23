@@ -5,7 +5,6 @@ import RenderRoot from "../Main/Root";
 import RenderMovie from "../Main/Movie";
 import RenderTheatherRoom from "../Main/TheaterRoom";
 import RenderSuccess from "../Main/Success";
-import RenderFooter from "../Footer"
 
 function App() {
     return (
@@ -16,7 +15,6 @@ function App() {
                 <Route path = "/movie-schedule" element = {<RenderMovie />}/>
                 <Route path = "/select-seats" element = {<RenderTheatherRoom />}/>
                 <Route path = "/success" element = {<RenderSuccess />}/>
-                {/*Footer ??? */}
             </Routes>
         </BrowserRouter>
     )

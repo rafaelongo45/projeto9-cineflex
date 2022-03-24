@@ -59,20 +59,6 @@
     margin-bottom: 10%;
 }
 
-.Theater-room .seats .captions section .selected{
-    background-color: var(--selected-color);
-    border: 1px solid var(--selected-border-color);
-}
-
-.Theater-room .seats .captions section .available{
-    background-color: var(--available-color);
-    border: 1px solid var(--available-border-color);
-}
-
-.Theater-room .seats .captions section .unavailable{
-    background-color: var(--unavailable-color);
-    border: 1px solid var(--unavailable-border-color);
-}
 
 .Theater-room article{
     height: 35%;
@@ -118,3 +104,17 @@
     background-color: var(--button-color);
 }
 
+.selected{ 
+    background-color: var(--selected-color) !important; 
+    border: 1px solid var(--selected-border-color) !important;
+}
+
+.available{
+    background-color: var(--available-color) !important;
+    border: 1px solid var(--available-border-color) !important;
+}
+
+.unavailable{
+    background-color: var(--unavailable-color) !important;
+    border: 1px solid var(--unavailable-border-color) !important;
+}

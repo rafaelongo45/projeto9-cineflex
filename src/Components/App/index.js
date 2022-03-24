@@ -12,8 +12,8 @@ function App() {
             <RenderHeader />
             <Routes>
                 <Route path = "/" element = {<RenderRoot />}/>
-                <Route path = "/movie-schedule" element = {<RenderMovie />}/>
-                <Route path = "/select-seats" element = {<RenderTheatherRoom />}/>
+                <Route path = "/movie-schedule/:movieId" element = {<RenderMovie />}/>
+                <Route path = "/select-seats/:showtimeId" element = {<RenderTheatherRoom />}/>
                 <Route path = "/success" element = {<RenderSuccess />}/>
             </Routes>
         </BrowserRouter>

@@ -1,9 +1,24 @@
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
+import axios from "axios"
 
 import RenderFooter from "../../Footer"
 import "../../Footer/style.css"
 import "./style.css"
+
 function RenderMovie() {
+    const [movieDays, setMovieDays] = useState([]);
+
+    const { movieId } = useParams();
+
+    useEffect(() => {
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${movieId}/showtimes`);
+
+        promise.then((answer) => {
+            setMovieDays(answer.data.days)
+        })
+    }, []);
+
     return (
         <>
             <section className="Movie">
@@ -11,30 +26,40 @@ function RenderMovie() {
                     <h1>Selecione o horário</h1>
                 </header>
                 <section>
-                    <p>Quinta-feira - 24/06/2021</p>
-                    <div>
-                        <Link to="/select-seats">
-                            <button>15:00</button>
-                        </Link>
-                        <Link to="/select-seats">
-                            <button>15:00</button>
-                        </Link>
-                    </div>
-
-                    <p>Sexta-feira - 25/06/2021</p>
-                    <div>
-                        <Link to="/select-seats">
-                            <button>15:00</button>
-                        </Link>
-                        <Link to="/select-seats">
-                            <button>15:00</button>
-                        </Link>
-                    </div>
-
-                    <RenderFooter />
+                    {movieDays.map((movieDay) => {
+                        const { id, weekday, date, showtimes } = movieDay
+                        return (
+                            <RenderSchedule key={id} weekday={weekday} date={date} showtimes={showtimes} />
+                        )
+                    })}
                 </section>
             </section>
+            <RenderFooter />
         </>
+    )
+}
+
+function RenderSchedule({ weekday, date, showtimes }) {
+    return (<>
+        <p>{weekday} - {date}</p>
+        <RenderHour showtimes={showtimes} />
+    </>
+    )
+}
+
+function RenderHour({ showtimes }) {
+    return (
+        <div>
+            {
+                showtimes.map((showtime) => {
+                    return (
+                        <Link key={showtime.id} to={"/select-seats/" + showtime.id}>
+                            <button>{showtime.name}</button>
+                        </Link>
+                    )
+                })
+            }
+        </div>
     )
 }
 

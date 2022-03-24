@@ -1,9 +1,19 @@
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./style.css"
-import img from "../../../Assets/img/image3.png"
 
 function RenderRoot() {
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        const promise = axios.get('https://mock-api.driven.com.br/api/v5/cineflex/movies/');
+
+        promise.then((answer) => {
+            setMovies(answer.data);
+        })
+    }, [])
     return (
         <>
             <section className="Route">
@@ -11,50 +21,14 @@ function RenderRoot() {
                     <h1> Selecione o filme</h1>
                 </header>
                 <section>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    <Link to = "/movie-schedule">
-                        <img src={img} alt = "movie-poster"/>
-                    </Link>
-                    
+                   {movies.map( (movie)=> {
+                       const {id, title, posterURL} = movie;
+                       return (
+                           <Link key = {id} to={`/movie-schedule/` + id}>
+                               <img src={posterURL} alt={title} />
+                           </Link>
+                       )
+                   })}
                 </section>
             </section>
         </>

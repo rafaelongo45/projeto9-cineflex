@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 
@@ -8,11 +8,10 @@ import "./style.css"
 
 function RenderTheatherRoom() {
     const [seats, setSeats] = useState([]);
-        const [seatClick, setSeatClick] = useState(false);
+    
+    const { showtimeId } = useParams();
 
-    const {showtimeId} = useParams();
-
-    useEffect ( () => {
+    useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${showtimeId}/seats`);
         promise.then((answer) => {
             setSeats(answer.data.seats)
@@ -32,12 +31,11 @@ function RenderTheatherRoom() {
                 <section className="seats">
                     {
                         seats.map((seat) => {
-                            const {id, name, isAvailable} = seat;
-                            let cssClass = seatClick === true? "seat selected" : "seat available"
+                            const { id, name, isAvailable } = seat;
                             return isAvailable === true ? (
-                                <div key = {id} className = {cssClass} onClick = {()=>{seatClick === true ? setSeatClick(false) : setSeatClick(true)}}>{name}</div>
+                                <RenderSeat key={id} name={name} />
                             ) :
-                                <div key = {id} className = "seat unavailable" onClick = { () => {alert("Esse assento está indisponível!")}}>{name}</div>
+                                <div key={id} className="seat unavailable" onClick={() => { alert("Esse assento está indisponível!") }}>{name}</div>
                         })
                     }
 
@@ -59,24 +57,47 @@ function RenderTheatherRoom() {
 
                 </section>
 
-                <article>
-                    <section>
-                        <p>Nome do comprador:</p>
-                        <input placeholder="Digite seu nome..."></input>
-                    </section>
+                <RenderButton />
 
-                    <section>
-                        <p>CPF do comprador:</p>
-                        <input placeholder="Digite seu CPF..."></input>
-                    </section>
-
-                    <Link to="/success">
-                        <button>Reservar assento(s)</button>
-                    </Link>
-                </article>
             </section>
             <RenderFooter />
         </>
+    )
+}
+
+function RenderSeat(props) {
+    const [seatClick, setSeatClick] = useState(false);
+    const { name } = props;
+    let cssClass = seatClick === true ? "seat selected" : "seat available";
+    return <div className={cssClass} onClick={() => { seatClick === true ? setSeatClick(false) : setSeatClick(true) }}>{name}</div>
+}
+
+function RenderButton() {
+    const [buyerName, setBuyerName] = useState("");
+    const [buyerCPF, setBuyerCPF] = useState("");
+
+    function emptyInput(){
+        if(buyerName === "" || buyerCPF === ""){
+            alert("Insira seu nome e seu CPF");
+        }
+    }
+
+    return (
+        <article>
+            <section>
+                <p>Nome do comprador:</p>
+                <input placeholder="Digite seu nome..." onChange={(event) => {setBuyerName(event.target.value)}}></input>
+            </section>
+
+            <section>
+                <p>CPF do comprador:</p>
+                <input placeholder="Digite seu CPF..." onChange={(event) => {setBuyerCPF(event.target.value)}}></input>
+            </section>
+
+            <Link to={buyerName === "" || buyerCPF === "" ? "" :"/success"}>
+                <button onClick={() => {emptyInput(); console.log(buyerCPF)}}>Reservar assento(s)</button>
+            </Link>
+        </article>
     )
 }
 

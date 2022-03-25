@@ -7,6 +7,8 @@ import "../../Footer/style.css"
 import "./style.css"
 
 function RenderMovie() {
+    const [movieTitle, setMovieTitle] = useState();
+    const [movieImg, setmovieImg] = useState();
     const [movieDays, setMovieDays] = useState([]);
 
     const { movieId } = useParams();
@@ -15,6 +17,8 @@ function RenderMovie() {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${movieId}/showtimes`);
 
         promise.then((answer) => {
+            setMovieTitle(answer.data.title)
+            setmovieImg(answer.data.posterURL)
             setMovieDays(answer.data.days)
         })
     }, []);
@@ -34,7 +38,7 @@ function RenderMovie() {
                     })}
                 </section>
             </section>
-            <RenderFooter />
+            <RenderFooter title = {movieTitle} posterURL = {movieImg}/>
         </>
     )
 }

@@ -1,15 +1,14 @@
-import img from "../../Assets/img/image3.png"
 import "./style.css"
 
-function RenderFooter() {
+function RenderFooter({title, posterURL, hour, day}) {
     return (
         <footer className="Footer">
             <div className = "movie-poster">
-                <img src={img} alt = "movie-poster"/>
+                <img src={posterURL} alt = {title}/>
             </div>
             <section className = "movie-info">
-                <h1>Movie title</h1>
-                <p>Quinta-feira - 15:00</p>
+                <h1>{title}</h1>
+                {day === undefined ? <p></p> :<p> {day} - {hour}</p>}
             </section>
         </footer>
     )

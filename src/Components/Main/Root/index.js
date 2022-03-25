@@ -21,14 +21,14 @@ function RenderRoot() {
                     <h1> Selecione o filme</h1>
                 </header>
                 <section>
-                   {movies.map( (movie)=> {
-                       const {id, title, posterURL} = movie;
-                       return (
-                           <Link key = {id} to={`/movie-schedule/` + id}>
-                               <img src={posterURL} alt={title} />
-                           </Link>
-                       )
-                   })}
+                    {movies.map((movie) => {
+                        const { id, title, posterURL } = movie;
+                        return (
+                            <Link key={id} to={`/movie-schedule/` + id}>
+                                <img src={posterURL} alt={title} />
+                            </Link>
+                        )
+                    })}
                 </section>
             </section>
         </>

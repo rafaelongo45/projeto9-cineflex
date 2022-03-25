@@ -1,6 +1,5 @@
 .Theater-room{
-    height: 100%;
-    margin-top: 18%;
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -10,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15%;
+    margin: 35px 0;
 }
 
 .Theater-room header h1{
@@ -74,13 +73,13 @@
 }
 
 .Theater-room article section p{
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
 }
 
 .Theater-room article section input{
     width: 95%;
-    height: 50%;
+    height: 55px;
     margin: 2% 0;
     border:1px solid var(--input-border-color);
     border-radius: 3px;
@@ -96,7 +95,8 @@
 
 .Theater-room article a button{
     width: 100%;
-    height: 100%;
+    margin-top:30px;
+    height: 50px;
     border-radius: 3px;
     border:none;
     font-size: 18px;

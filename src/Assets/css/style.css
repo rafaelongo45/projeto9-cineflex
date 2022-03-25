@@ -16,13 +16,13 @@
     --success-h1-color: rgba(36, 122, 107, 1);
 }
 
-body{
-    font-family: 'Roboto', sans-serif;
-    color: var(--font-color);
+html, body {
+    min-height:100%;
 }
 
-.root{
-    margin: auto;
+body{
     width: 90%;
-    height: 77vh;
+    font-family: 'Roboto', sans-serif;
+    color: var(--font-color);
+    margin: auto;
 }

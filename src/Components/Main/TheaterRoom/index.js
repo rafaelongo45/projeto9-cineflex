@@ -122,8 +122,8 @@ function RenderButton({ seatId, movieTitle, hour, day, seatsNumbers, date }) {
     }
 
     function emptyInput() {
-        if (buyerName === "" || buyerCPF === "") {
-            alert("Insira seu nome e seu CPF");
+        if (buyerName === "" || buyerCPF === "" || seatId.length === 0) {
+            alert("Insira seu nome, seu CPF e escolha o(s) assento(s)");
         }
     }
 
@@ -139,7 +139,7 @@ function RenderButton({ seatId, movieTitle, hour, day, seatsNumbers, date }) {
                 <input placeholder="Digite seu CPF..." onChange={(event) => { setBuyerCPF(event.target.value) }}></input>
             </section>
 
-            <Link to= {buyerName === "" || buyerCPF === "" ? "" : "/success" } state = {{buyerCPF: buyerCPF, buyerName, movieTitle:movieTitle, hour:hour, day:day, seatsNumbers:seatsNumbers, date:date }}>
+            <Link to= {buyerName === "" || buyerCPF === "" || seatId.length === 0 ? "" : "/success" } state = {{buyerCPF: buyerCPF, buyerName, movieTitle:movieTitle, hour:hour, day:day, seatsNumbers:seatsNumbers, date:date }}>
                 <button onClick={() => { emptyInput(); sendData(seatId, buyerName, buyerCPF) }}>Reservar assento(s)</button>
             </Link>
         </article>

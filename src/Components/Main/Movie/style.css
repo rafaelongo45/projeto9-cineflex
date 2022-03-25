@@ -1,24 +1,25 @@
 .Movie{
-    height: 100%;
-    margin-top: 18%;
+    height: inherit;
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .Movie header{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 11%;
 }
 
 .Movie header h1{
     font-size: 24px;
+    margin: 12% 0;
 }
 
 .Movie section{
-    height: 75%;
+    width:100%;
+    margin-bottom: 72%;
 }
 
 .Movie section p{
@@ -26,8 +27,8 @@
 }
 
 .Movie section div{
-    height: 8%;
-    margin: 8% 0;
+    height: 5%;
+    margin: 7% 0;
 }
 
 .Movie section div button{

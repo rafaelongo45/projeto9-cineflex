@@ -8,7 +8,7 @@ import "./style.css"
 
 function RenderTheatherRoom() {
     const [seats, setSeats] = useState([]);
-    
+    const [seatId, setSeatId] = useState([]);
     const { showtimeId } = useParams();
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function RenderTheatherRoom() {
                         seats.map((seat) => {
                             const { id, name, isAvailable } = seat;
                             return isAvailable === true ? (
-                                <RenderSeat key={id} name={name} />
+                                <RenderSeat key={id} id = {id} name={name} seatId = {seatId} setSeatId = {setSeatId}/>
                             ) :
                                 <div key={id} className="seat unavailable" onClick={() => { alert("Esse assento está indisponível!") }}>{name}</div>
                         })
@@ -57,7 +57,7 @@ function RenderTheatherRoom() {
 
                 </section>
 
-                <RenderButton />
+                <RenderButton seatId = {seatId}/>
 
             </section>
             <RenderFooter />
@@ -67,20 +67,48 @@ function RenderTheatherRoom() {
 
 function RenderSeat(props) {
     const [seatClick, setSeatClick] = useState(false);
-    const { name } = props;
+    const [chosenId, setChosenId] = useState();
+    const { name, id, setSeatId, seatId } = props;
+
+    function checkSeatStoreId(chosen){
+        if(seatClick === true){
+            setSeatClick(false)
+
+            if(seatId.length !== 0){
+                setSeatId(seatId.filter((id)=>{
+                    return id !== chosen
+                }))
+            }
+
+        }else{
+            setSeatClick(true)
+            setSeatId(seatId.concat(id))
+        }
+    }
+
     let cssClass = seatClick === true ? "seat selected" : "seat available";
-    return <div className={cssClass} onClick={() => { seatClick === true ? setSeatClick(false) : setSeatClick(true) }}>{name}</div>
+    return <div className={cssClass} onClick={()=>{ setChosenId(id); checkSeatStoreId(chosenId) } }>{name}</div>
 }
 
-function RenderButton() {
+function RenderButton({seatId}) {
     const [buyerName, setBuyerName] = useState("");
     const [buyerCPF, setBuyerCPF] = useState("");
+
+    function sendData(ids, name, cpf){
+        const data = {
+            ids: ids,
+            name: name,
+            cpf: cpf
+        }
+        axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', data)
+    }
 
     function emptyInput(){
         if(buyerName === "" || buyerCPF === ""){
             alert("Insira seu nome e seu CPF");
         }
     }
+
 
     return (
         <article>
@@ -94,8 +122,8 @@ function RenderButton() {
                 <input placeholder="Digite seu CPF..." onChange={(event) => {setBuyerCPF(event.target.value)}}></input>
             </section>
 
-            <Link to={buyerName === "" || buyerCPF === "" ? "" :"/success"}>
-                <button onClick={() => {emptyInput(); console.log(buyerCPF)}}>Reservar assento(s)</button>
+            <Link to={buyerName === "" || buyerCPF === "" ? "" :"/success"} >
+                <button onClick={() => {emptyInput(); sendData(seatId, buyerName, buyerCPF)}}>Reservar assento(s)</button>
             </Link>
         </article>
     )

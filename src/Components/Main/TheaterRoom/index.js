@@ -7,7 +7,7 @@ import RenderButton from "./RenderButton"
 import RenderFooter from "../../Footer"
 import "./style.css"
 
-function RenderTheatherRoom() {
+function RenderTheatherRoom({setLastPage, lastPage}) {
     const [seats, setSeats] = useState([]);
     const [seatId, setSeatId] = useState([]);
     const [movieTitle, setMovieTitle] = useState();
@@ -41,7 +41,7 @@ function RenderTheatherRoom() {
                 </header>
 
                 <RenderSeats seatId={seatId} setSeatId={setSeatId} seats={seats} seatsNumbers={seatsNumbers} setSeatsNumbers={setSeatsNumbers} />
-                <RenderButton seatId={seatId} movieTitle={movieTitle} hour={hour} day={day} seatsNumbers={seatsNumbers} date={date} />
+                <RenderButton seatId={seatId} movieTitle={movieTitle} hour={hour} day={day} seatsNumbers={seatsNumbers} date={date} setLastPage = {setLastPage} showtimeId = {showtimeId} />
 
             </section>
             <RenderFooter title={movieTitle} posterURL={movieImg} hour={hour} day={day} />

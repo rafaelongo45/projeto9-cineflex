@@ -9,6 +9,18 @@
     z-index:1;
     top: 0;
     left: 0;
+    
+}
+
+.Header button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    
 }
 
 .Header h1{

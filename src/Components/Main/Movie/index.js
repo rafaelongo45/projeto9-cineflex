@@ -7,7 +7,7 @@ import RenderSchedule from "./RenderSchedule"
 import "../../Footer/style.css"
 import "./style.css"
 
-function RenderMovie() {
+function RenderMovie({setLastPage}) {
     const [movieTitle, setMovieTitle] = useState();
     const [movieImg, setmovieImg] = useState();
     const [movieDays, setMovieDays] = useState([]);
@@ -34,7 +34,7 @@ function RenderMovie() {
                     {movieDays.map((movieDay) => {
                         const { id, weekday, date, showtimes } = movieDay
                         return (
-                            <RenderSchedule key={id} weekday={weekday} date={date} showtimes={showtimes} />
+                            <RenderSchedule key={id} weekday={weekday} date={date} showtimes={showtimes} setLastPage = {setLastPage} movieId ={movieId}/>
                         )
                     })}
                 </section>

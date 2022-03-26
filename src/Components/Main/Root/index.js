@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./style.css"
 
-function RenderRoot() {
+function RenderRoot({setLastPage, setEnableButton}) {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function RenderRoot() {
                     {movies.map((movie) => {
                         const { id, title, posterURL } = movie;
                         return (
-                            <Link key={id} to={`/movie-schedule/` + id}>
+                            <Link key={id} to={`/movie-schedule/` + id} onClick = {()=>{setLastPage('/') ; setEnableButton(true)}}>
                                 <img src={posterURL} alt={title} />
                             </Link>
                         )

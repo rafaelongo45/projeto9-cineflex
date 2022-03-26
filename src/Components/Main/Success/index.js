@@ -1,10 +1,11 @@
 import { Link, useLocation } from "react-router-dom"
 
+import RenderSeats from "./RenderSeats";
 import "./style.css"
 
 function RenderSuccess() {
     const location = useLocation();
-    console.log(location);
+    
     let arrSeats = [...location.state.seatsNumbers]
     arrSeats = arrSeats.sort((a,b) => a-b)
     return (
@@ -34,18 +35,6 @@ function RenderSuccess() {
                 <button>Voltar pra Home</button>
             </Link>
         </article>
-    )
-}
-
-function RenderSeats({seats, key}) {
-    return (
-        <>
-            {seats.map((seat) => {
-                return (
-                    <p key = {key + seat}> Assento {seat}</p>
-                )
-            })}
-        </>
     )
 }
 

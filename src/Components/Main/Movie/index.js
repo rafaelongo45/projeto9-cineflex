@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 
 import RenderFooter from "../../Footer"
+import RenderSchedule from "./RenderSchedule"
 import "../../Footer/style.css"
 import "./style.css"
 
@@ -42,29 +43,4 @@ function RenderMovie() {
         </>
     )
 }
-
-function RenderSchedule({ weekday, date, showtimes }) {
-    return (<>
-        <p>{weekday} - {date}</p>
-        <RenderHour showtimes={showtimes} />
-    </>
-    )
-}
-
-function RenderHour({ showtimes }) {
-    return (
-        <div>
-            {
-                showtimes.map((showtime) => {
-                    return (
-                        <Link key={showtime.id} to={"/select-seats/" + showtime.id}>
-                            <button>{showtime.name}</button>
-                        </Link>
-                    )
-                })
-            }
-        </div>
-    )
-}
-
 export default RenderMovie;

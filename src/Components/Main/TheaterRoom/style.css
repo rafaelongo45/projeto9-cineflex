@@ -3,6 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    height:inherit;
+    margin-bottom: 35%;
 }
 
 .Theater-room header{

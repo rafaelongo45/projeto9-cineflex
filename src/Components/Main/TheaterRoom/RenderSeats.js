@@ -1,14 +1,14 @@
 import RenderSeat from "./RenderSeat";
 
 
-function RenderSeats({ seatId, setSeatId, seats, seatsNumbers, setSeatsNumbers }) {
+function RenderSeats({ seatId, setSeatId, seats, seatsNumbers, setSeatsNumbers, setUserSeats, userSeats}) {
     return (
         <section className="seats">
             {
                 seats.map((seat) => {
                     const { id, name, isAvailable } = seat;
                     return isAvailable === true ? (
-                        <RenderSeat key={id} id={id} name={name} seatId={seatId} setSeatId={setSeatId} setSeatsNumbers={setSeatsNumbers} seatsNumbers={seatsNumbers} />
+                        <RenderSeat userSeats = {userSeats} setUserSeats = {setUserSeats} key={id} id={id} name={name} seatId={seatId} setSeatId={setSeatId} setSeatsNumbers={setSeatsNumbers} seatsNumbers={seatsNumbers} />
                     ) :
                         <div key={id} className="seat unavailable" onClick={() => { alert("Esse assento está indisponível!") }}>{name}</div>
                 })

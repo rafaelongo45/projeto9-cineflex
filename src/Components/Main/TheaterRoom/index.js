@@ -16,6 +16,7 @@ function RenderTheatherRoom({setLastPage, lastPage}) {
     const [date, setDate] = useState();
     const [day, setDay] = useState();
     const [seatsNumbers, setSeatsNumbers] = useState([]);
+    const [userSeats, setUserSeats] = useState({click: false, number: []});
     const { showtimeId } = useParams();
 
     useEffect(() => {
@@ -40,8 +41,8 @@ function RenderTheatherRoom({setLastPage, lastPage}) {
                     <h1>Selecione o(s) assento(s)</h1>
                 </header>
 
-                <RenderSeats seatId={seatId} setSeatId={setSeatId} seats={seats} seatsNumbers={seatsNumbers} setSeatsNumbers={setSeatsNumbers} />
-                <RenderButton seatId={seatId} movieTitle={movieTitle} hour={hour} day={day} seatsNumbers={seatsNumbers} date={date} setLastPage = {setLastPage} showtimeId = {showtimeId} />
+                <RenderSeats setUserSeats = {setUserSeats} userSeats = {userSeats} seatId={seatId} setSeatId={setSeatId} seats={seats} seatsNumbers={seatsNumbers} setSeatsNumbers={setSeatsNumbers} />
+                <RenderButton setUserSeats = {setUserSeats} userSeats = {userSeats} seatId={seatId} movieTitle={movieTitle} hour={hour} day={day} seatsNumbers={seatsNumbers} date={date} setLastPage = {setLastPage} showtimeId = {showtimeId} />
 
             </section>
             <RenderFooter title={movieTitle} posterURL={movieImg} hour={hour} day={day} />
